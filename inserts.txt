@@ -1,0 +1,80 @@
+CREATE TABLE Articulo
+  (
+    titulo NVARCHAR2 (100) NOT NULL ,
+    idArticulo INTEGER NOT NULL ,
+    resumen NVARCHAR2 (500) ,
+    palabrasClave NVARCHAR2 (500) ,
+    Usuario_idUsuario INTEGER NOT NULL
+  ) ;
+ALTER TABLE Articulo ADD CONSTRAINT Articulo_PK PRIMARY KEY ( idArticulo ) ;
+
+
+CREATE TABLE Evento
+  (
+    idEvento INTEGER NOT NULL ,
+    tema NVARCHAR2 (50) NOT NULL ,
+    fechaInicio DATE NOT NULL ,
+    fechaFin    DATE NOT NULL
+  ) ;
+ALTER TABLE Evento ADD CONSTRAINT Evento_PK PRIMARY KEY ( idEvento ) ;
+
+
+CREATE TABLE Revision
+  (
+    Usuario_idUsuario INTEGER NOT NULL ,
+    idRevision        INTEGER NOT NULL ,
+    calificacion      NUMBER NOT NULL ,
+    comentarios NVARCHAR2 (500) ,
+    Submision_idSubmision INTEGER NOT NULL
+  ) ;
+ALTER TABLE Revision ADD CONSTRAINT Revision_PK PRIMARY KEY ( idRevision ) ;
+
+
+CREATE TABLE Submision
+  (
+    idSubmision         INTEGER NOT NULL ,
+    estado NVARCHAR2 (20) NOT NULL ,
+    fechaSubida          DATE NOT NULL ,
+    Evento_idEvento      INTEGER NOT NULL ,
+    Usuario_idUsuario    INTEGER NOT NULL ,
+    Articulo_idArticulo2 INTEGER NOT NULL
+  ) ;
+CREATE UNIQUE INDEX Submision__IDX ON Submision
+  (
+    Articulo_idArticulo2 ASC
+  )
+  ;
+  -- Error - Index Submision__IDXv1 has no columns
+ALTER TABLE Submision ADD CONSTRAINT Submision_PK PRIMARY KEY ( idSubmision ) ;
+
+
+CREATE TABLE Usuario
+  (
+    idUsuario INTEGER NOT NULL ,
+    correo NVARCHAR2 (255) NOT NULL ,
+    contrasena NVARCHAR2 (20) NOT NULL ,
+    nombres NVARCHAR2 (100) ,
+    apellidos NVARCHAR2 (100) NOT NULL ,
+    fechaNacimiento DATE ,
+    tipo NVARCHAR2 (20) NOT NULL ,
+    Evento_idEvento INTEGER 
+  ) ;
+ALTER TABLE Usuario ADD CONSTRAINT Usuario_PK PRIMARY KEY ( idUsuario ) ;
+
+
+ALTER TABLE Articulo ADD CONSTRAINT Articulo_Usuario_FK FOREIGN KEY ( Usuario_idUsuario ) REFERENCES Usuario ( idUsuario ) ;
+
+ALTER TABLE Revision ADD CONSTRAINT Revision_Submision_FK FOREIGN KEY ( Submision_idSubmision ) REFERENCES Submision ( idSubmision ) ;
+
+ALTER TABLE Revision ADD CONSTRAINT Revision_Usuario_FK FOREIGN KEY ( Usuario_idUsuario ) REFERENCES Usuario ( idUsuario ) ;
+
+ALTER TABLE Submision ADD CONSTRAINT Submision_Articulo_FK FOREIGN KEY ( Articulo_idArticulo2 ) REFERENCES Articulo ( idArticulo ) ;
+
+ALTER TABLE Submision ADD CONSTRAINT Submision_Evento_FK FOREIGN KEY ( Evento_idEvento ) REFERENCES Evento ( idEvento ) ;
+
+ALTER TABLE Submision ADD CONSTRAINT Submision_Usuario_FK FOREIGN KEY ( Usuario_idUsuario ) REFERENCES Usuario ( idUsuario ) ;
+
+ALTER TABLE Usuario ADD CONSTRAINT Usuario_Evento_FK FOREIGN KEY ( Evento_idEvento ) REFERENCES Evento ( idEvento ) ;
+
+
+commit;

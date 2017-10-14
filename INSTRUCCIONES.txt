@@ -1,0 +1,11 @@
+1. Descargar base de datos local de oracle
+2. Ingresar a la base de datos con el usuario system
+3. ejectutar los siguientes scripts:
+	create user webservice identified by ws;
+	grant connect to webservice;
+	grant resource to webservice;
+4 Ingresar con el usuario webservice
+5. Ejecutar los inserts del archivo inserts
+6. Abrir el proyecto desde eclipse
+7. Click derecho sobre el proyecto, propiedades, click en java buildpath, importar el driver ojdbc14 en la pestaña libraries
+8. ejecutar el main 
