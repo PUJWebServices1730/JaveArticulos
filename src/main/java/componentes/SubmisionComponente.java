@@ -4,7 +4,6 @@
 package componentes;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 
@@ -35,12 +34,16 @@ public class SubmisionComponente {
     		cons= articulos.get(articulos.size()-1).getIdarticulo();
 		else
 			cons = new BigDecimal(0);
-		Usuario us = em.find(Usuario.class,usuarioId);
-        em.getTransaction().begin();
-        ar.setIdarticulo(cons.add(new BigDecimal(1)));
-        ar.setUsuarioIdusuario(us);
-        em.persist(ar);
-        em.getTransaction().commit();
+		try{
+			Usuario us = em.find(Usuario.class,usuarioId);
+	        em.getTransaction().begin();
+	        ar.setIdarticulo(cons.add(new BigDecimal(1)));
+	        ar.setUsuarioIdusuario(us);
+	        em.persist(ar);
+	        em.getTransaction().commit();
+		}catch(Exception e){
+			return null;
+		}
         return ar;
 	}
 	
@@ -54,18 +57,23 @@ public class SubmisionComponente {
 			cons = new BigDecimal(0);
 		Articulo art = em.find(Articulo.class, articuloId);
 		Submision sb = new Submision();
-		em.getTransaction().begin();
-        sb.setArticuloIdarticulo2(art);
-        sb.setIdsubmision(cons.add(new BigDecimal(1)));
-        sb.setFechasubida(new Date());
-        sb.setEstado("Pendiente");
-        sb.setEventoIdevento(em.find(Evento.class, eventoId));
-        sb.setUsuarioIdusuario(em.find(Usuario.class, art.getUsuarioIdusuario().getIdusuario()));
-        em.persist(sb);
-        em.getTransaction().commit();
+		try{
+			em.getTransaction().begin();
+	        sb.setArticuloIdarticulo2(art);
+	        sb.setIdsubmision(cons.add(new BigDecimal(1)));
+	        sb.setFechasubida(new Date());
+	        sb.setEstado("Pendiente");
+	        sb.setEventoIdevento(em.find(Evento.class, eventoId));
+	        sb.setUsuarioIdusuario(em.find(Usuario.class, art.getUsuarioIdusuario().getIdusuario()));
+	        em.persist(sb);
+	        em.getTransaction().commit();
+		}catch(Exception e){
+			return null;
+		}
         return sb;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public Revision agregarRevisor(BigDecimal idSubmision,BigDecimal idRevisor){
 		List<Revision> revisiones = em.createQuery("SELECT u FROM Revision u").getResultList();
 		BigDecimal cons ;
@@ -111,24 +119,30 @@ public class SubmisionComponente {
 		return b;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Articulo> articuloUsuario(BigDecimal idUsuario){
 		Usuario u = em.find(Usuario.class, idUsuario);
 		return em.createQuery("select a from Articulo a where a.usuarioIdusuario = :usuario").setParameter("usuario", u).getResultList();
 		
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Submision> submisionUsuario(BigDecimal idUsuario){
 		Usuario u = em.find(Usuario.class, idUsuario);
 		return em.createQuery("select a from Submision a where a.usuarioIdusuario = :usuario").setParameter("usuario", u).getResultList();
 		
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Revision> revisionesSubmision(BigDecimal idSub){
 		Submision s = em.find(Submision.class, idSub);
 		return em.createQuery("select a from Revision a where a.submisionIdsubmision = :sub").setParameter("sub", s).getResultList();
-		
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Submision> submisiones(){
+		return em.createNamedQuery("Submision.findAll").getResultList();
+	}
 	
 
 }

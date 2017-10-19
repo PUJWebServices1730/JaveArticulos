@@ -51,7 +51,8 @@ public class UsuarioComponente {
     	return usuario;
     }
     
-    public List<Usuario> usuarioTipo(String tipo){
+    @SuppressWarnings("unchecked")
+	public List<Usuario> usuarioTipo(String tipo){
     	return em.createNamedQuery("Usuario.findByTipo").setParameter("tipo", tipo).getResultList();
     }
 

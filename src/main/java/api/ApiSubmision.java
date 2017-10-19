@@ -58,9 +58,15 @@ public class ApiSubmision {
 	public List<Submision> submisionUsuario(BigDecimal idUsuario){
 		return subComponent.submisionUsuario(idUsuario);
 	}
+	
 	@WebMethod
 	public List<Revision> revisionesSubmision(BigDecimal idSub){
 		return subComponent.revisionesSubmision(idSub);
+	}
+	
+	@WebMethod
+	public List<Submision> submisiones(){
+		return subComponent.submisiones();
 	}
 	
 	

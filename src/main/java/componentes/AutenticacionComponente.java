@@ -21,10 +21,14 @@ public class AutenticacionComponente {
     EntityManager em = emf.createEntityManager();
     
     public Usuario autenticacion(String correo,String pass){
-    	Query q = em.createNamedQuery("Usuario.autenticacion");
-    	q.setParameter("correo", correo);
-    	q.setParameter("contrasena", pass);
+    	try{
+	    	Query q = em.createNamedQuery("Usuario.autenticacion");
+	    	q.setParameter("correo", correo);
+	    	q.setParameter("contrasena", pass);
     	return (Usuario)q.getSingleResult();
+    	}catch(Exception e){
+    		return null;
+    	}
 
     }
 
