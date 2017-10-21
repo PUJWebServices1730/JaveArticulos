@@ -16,13 +16,7 @@ import api.ApiUsuarios;
  * @author HP
  */
 public class Main {
-	
-	
-	
-	public void something(){
-		
-	}
-	
+
     /**
      * @param args the command line arguments
      */

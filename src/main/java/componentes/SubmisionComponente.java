@@ -95,6 +95,26 @@ public class SubmisionComponente {
 		
 	}
 	
+	@SuppressWarnings("unchecked")
+	public Evento crearEvento(Evento ev){
+		List<Evento> eventos = em.createQuery("SELECT u FROM Evento u").getResultList();
+		BigDecimal cons ;
+		if(!eventos.isEmpty())
+    		cons= eventos.get(eventos.size()-1).getIdevento();
+		else
+			cons = new BigDecimal(0);
+		try{
+	        em.getTransaction().begin();
+	        ev.setIdevento(cons.add(new BigDecimal(1)));
+	        em.persist(ev);
+	        em.getTransaction().commit();
+		}catch(Exception e){
+			return null;
+		}
+        return ev;
+		
+	}
+	
 	public Revision calificarSubmision(BigDecimal idRevision,Integer calificacion,String comentarios){
 		Revision revision = em.find(Revision.class, idRevision);
 		em.getTransaction().begin();
@@ -140,9 +160,19 @@ public class SubmisionComponente {
 	}
 	
 	@SuppressWarnings("unchecked")
+	public List<Revision> revisionesRevisor(BigDecimal idRev){
+		Usuario revisor = em.find(Usuario.class, idRev);
+		return em.createQuery("select a from Revision a where a.usuarioIdusuario = :rev").setParameter("rev", revisor).getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
 	public List<Submision> submisiones(){
 		return em.createNamedQuery("Submision.findAll").getResultList();
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Evento> eventos(){
+		return em.createNamedQuery("Evento.findAll").getResultList();
+	}
 
 }

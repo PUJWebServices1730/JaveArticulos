@@ -26,11 +26,7 @@ public class UsuarioComponente {
     @SuppressWarnings("unchecked")
 	public Usuario crearAutor(Usuario usuario){
     	List<Usuario> usuarios = em.createQuery("SELECT u FROM Usuario u").getResultList();
-    	BigDecimal cons;	
-    	if(!usuarios.isEmpty())
-    		cons = usuarios.get(usuarios.size()-1).getIdusuario();
-    	else
-    		cons = new BigDecimal(0);
+    	BigDecimal cons = new BigDecimal(usuarios.size());
     	em.getTransaction().begin();
     	usuario.setIdusuario(cons.add(new BigDecimal(1)));
     	usuario.setTipo("autor");
@@ -42,10 +38,23 @@ public class UsuarioComponente {
     @SuppressWarnings("unchecked")
 	public Usuario crearRevisor(Usuario usuario){
     	List<Usuario> usuarios = em.createQuery("SELECT u FROM Usuario u").getResultList();
-    	BigDecimal cons = usuarios.get(usuarios.size()-1).getIdusuario();
+    	BigDecimal cons = new BigDecimal(usuarios.size());
     	em.getTransaction().begin();
     	usuario.setIdusuario(cons.add(new BigDecimal(1)));
     	usuario.setTipo("revisor");
+    	em.persist(usuario);
+    	em.getTransaction().commit();
+    	return usuario;
+    }
+    
+
+    @SuppressWarnings("unchecked")
+	public Usuario crearEditor(Usuario usuario){
+    	List<Usuario> usuarios = em.createQuery("SELECT u FROM Usuario u").getResultList();
+    	BigDecimal cons = new BigDecimal(usuarios.size());
+    	em.getTransaction().begin();
+    	usuario.setIdusuario(cons.add(new BigDecimal(1)));
+    	usuario.setTipo("editor");
     	em.persist(usuario);
     	em.getTransaction().commit();
     	return usuario;

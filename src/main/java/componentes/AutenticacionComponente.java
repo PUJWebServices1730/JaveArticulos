@@ -25,7 +25,8 @@ public class AutenticacionComponente {
 	    	Query q = em.createNamedQuery("Usuario.autenticacion");
 	    	q.setParameter("correo", correo);
 	    	q.setParameter("contrasena", pass);
-    	return (Usuario)q.getSingleResult();
+	    	Usuario u = (Usuario)q.getSingleResult();
+    		return u;
     	}catch(Exception e){
     		return null;
     	}

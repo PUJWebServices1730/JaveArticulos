@@ -13,6 +13,7 @@ import componentes.SubmisionComponente;
 import entities.Articulo;
 import entities.Revision;
 import entities.Submision;
+import entities.Evento;
 
 /**
  * @author HP
@@ -37,6 +38,11 @@ public class ApiSubmision {
 	@WebMethod
 	public Revision agregarRevisor(BigDecimal idSubmision,BigDecimal idRevisor){
 		return subComponent.agregarRevisor(idSubmision, idRevisor);
+	}
+	
+	@WebMethod
+	public Evento crearEvento(Evento ev){
+		return subComponent.crearEvento(ev);
 	}
 	
 	@WebMethod
@@ -65,10 +71,18 @@ public class ApiSubmision {
 	}
 	
 	@WebMethod
+	public List<Revision> revisionesRevisor(BigDecimal idRev){
+		return subComponent.revisionesRevisor(idRev);
+	}
+	
+	@WebMethod
 	public List<Submision> submisiones(){
 		return subComponent.submisiones();
 	}
 	
-	
+	@WebMethod
+	public List<Evento> eventos(){
+		return subComponent.eventos();
+	}
 
 }

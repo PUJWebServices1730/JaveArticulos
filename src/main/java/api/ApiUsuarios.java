@@ -24,6 +24,11 @@ public class ApiUsuarios {
 	}
 	
 	@WebMethod
+	public Usuario crearEditor(Usuario u){
+		return usuarioComponent.crearEditor(u);
+	}
+	
+	@WebMethod
 	public List<Usuario> usuarioTipo(String tipo){
 		return usuarioComponent.usuarioTipo(tipo);
 	}
