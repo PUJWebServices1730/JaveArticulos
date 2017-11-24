@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.2.9-b130926.1035 svn-revision#5f6196f2b90e9460065a4c2f4e30e065b245e51e. --><xs:schema xmlns:tns="http://api/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://api/">
+
+<xs:element name="crearAutor" type="tns:crearAutor"></xs:element>
+
+<xs:element name="crearAutorResponse" type="tns:crearAutorResponse"></xs:element>
+
+<xs:element name="crearEditor" type="tns:crearEditor"></xs:element>
+
+<xs:element name="crearEditorResponse" type="tns:crearEditorResponse"></xs:element>
+
+<xs:element name="crearRevisor" type="tns:crearRevisor"></xs:element>
+
+<xs:element name="crearRevisorResponse" type="tns:crearRevisorResponse"></xs:element>
+
+<xs:element name="evento" type="tns:evento"></xs:element>
+
+<xs:element name="getTipo" type="tns:getTipo"></xs:element>
+
+<xs:element name="getTipoResponse" type="tns:getTipoResponse"></xs:element>
+
+<xs:element name="usuario" type="tns:usuario"></xs:element>
+
+<xs:element name="usuarioTipo" type="tns:usuarioTipo"></xs:element>
+
+<xs:element name="usuarioTipoResponse" type="tns:usuarioTipoResponse"></xs:element>
+
+<xs:complexType name="usuarioTipo">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="usuarioTipoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="usuario">
+<xs:sequence>
+<xs:element name="apellidos" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="carrera" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="contrasena" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="correo" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="eventoIdevento" type="tns:evento" minOccurs="0"></xs:element>
+<xs:element name="fechanacimiento" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="idusuario" type="xs:decimal" minOccurs="0"></xs:element>
+<xs:element name="nombres" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="postgrados" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="tipo" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="evento">
+<xs:sequence>
+<xs:element name="fechafin" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="fechainicio" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="idevento" type="xs:decimal" minOccurs="0"></xs:element>
+<xs:element name="lugar" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="tema" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTipo">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTipoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearAutor">
+<xs:sequence>
+<xs:element name="arg0" type="tns:usuario" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearAutorResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearEditor">
+<xs:sequence>
+<xs:element name="arg0" type="tns:usuario" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearEditorResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearRevisor">
+<xs:sequence>
+<xs:element name="arg0" type="tns:usuario" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearRevisorResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.2.9-b130926.1035 svn-revision#5f6196f2b90e9460065a4c2f4e30e065b245e51e. --><xs:schema xmlns:tns="http://api/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://api/">
+
+<xs:element name="agregarRevisor" type="tns:agregarRevisor"></xs:element>
+
+<xs:element name="agregarRevisorResponse" type="tns:agregarRevisorResponse"></xs:element>
+
+<xs:element name="articulo" type="tns:articulo"></xs:element>
+
+<xs:element name="articuloUsuario" type="tns:articuloUsuario"></xs:element>
+
+<xs:element name="articuloUsuarioResponse" type="tns:articuloUsuarioResponse"></xs:element>
+
+<xs:element name="calcularCalificacion" type="tns:calcularCalificacion"></xs:element>
+
+<xs:element name="calcularCalificacionResponse" type="tns:calcularCalificacionResponse"></xs:element>
+
+<xs:element name="calificarSubmision" type="tns:calificarSubmision"></xs:element>
+
+<xs:element name="calificarSubmisionResponse" type="tns:calificarSubmisionResponse"></xs:element>
+
+<xs:element name="crearArticulo" type="tns:crearArticulo"></xs:element>
+
+<xs:element name="crearArticuloResponse" type="tns:crearArticuloResponse"></xs:element>
+
+<xs:element name="crearSubmision" type="tns:crearSubmision"></xs:element>
+
+<xs:element name="crearSubmisionResponse" type="tns:crearSubmisionResponse"></xs:element>
+
+<xs:element name="evento" type="tns:evento"></xs:element>
+
+<xs:element name="revision" type="tns:revision"></xs:element>
+
+<xs:element name="revisionesSubmision" type="tns:revisionesSubmision"></xs:element>
+
+<xs:element name="revisionesSubmisionResponse" type="tns:revisionesSubmisionResponse"></xs:element>
+
+<xs:element name="submision" type="tns:submision"></xs:element>
+
+<xs:element name="submisionUsuario" type="tns:submisionUsuario"></xs:element>
+
+<xs:element name="submisionUsuarioResponse" type="tns:submisionUsuarioResponse"></xs:element>
+
+<xs:element name="usuario" type="tns:usuario"></xs:element>
+
+<xs:complexType name="calcularCalificacion">
+<xs:sequence>
+<xs:element name="arg0" type="xs:decimal" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="calcularCalificacionResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="agregarRevisor">
+<xs:sequence>
+<xs:element name="arg0" type="xs:decimal" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:decimal" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="agregarRevisorResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:revision" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="revision">
+<xs:sequence>
+<xs:element name="calificacion" type="xs:int" minOccurs="0"></xs:element>
+<xs:element name="comentarios" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="idrevision" type="xs:decimal" minOccurs="0"></xs:element>
+<xs:element name="submisionIdsubmision" type="tns:submision" minOccurs="0"></xs:element>
+<xs:element name="usuarioIdusuario" type="tns:usuario" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="submision">
+<xs:sequence>
+<xs:element name="articuloIdarticulo2" type="tns:articulo" minOccurs="0"></xs:element>
+<xs:element name="estado" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="eventoIdevento" type="tns:evento" minOccurs="0"></xs:element>
+<xs:element name="fechasubida" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="idsubmision" type="xs:decimal" minOccurs="0"></xs:element>
+<xs:element name="usuarioIdusuario" type="tns:usuario" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="articulo">
+<xs:sequence>
+<xs:element name="idarticulo" type="xs:decimal" minOccurs="0"></xs:element>
+<xs:element name="palabrasclave" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="resumen" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="titulo" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="usuarioIdusuario" type="tns:usuario" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="usuario">
+<xs:sequence>
+<xs:element name="apellidos" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="contrasena" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="correo" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="eventoIdevento" type="tns:evento" minOccurs="0"></xs:element>
+<xs:element name="fechanacimiento" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="idusuario" type="xs:decimal" minOccurs="0"></xs:element>
+<xs:element name="nombres" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="tipo" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="evento">
+<xs:sequence>
+<xs:element name="fechafin" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="fechainicio" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="idevento" type="xs:decimal" minOccurs="0"></xs:element>
+<xs:element name="tema" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearSubmision">
+<xs:sequence>
+<xs:element name="arg0" type="xs:decimal" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:decimal" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearSubmisionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:submision" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="articuloUsuario">
+<xs:sequence>
+<xs:element name="arg0" type="xs:decimal" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="articuloUsuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:articulo" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="revisionesSubmision">
+<xs:sequence>
+<xs:element name="arg0" type="xs:decimal" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="revisionesSubmisionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:revision" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearArticulo">
+<xs:sequence>
+<xs:element name="arg0" type="tns:articulo" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:decimal" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearArticuloResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:articulo" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="calificarSubmision">
+<xs:sequence>
+<xs:element name="arg0" type="xs:decimal" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:int" minOccurs="0"></xs:element>
+<xs:element name="arg2" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="calificarSubmisionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:revision" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="submisionUsuario">
+<xs:sequence>
+<xs:element name="arg0" type="xs:decimal" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="submisionUsuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:submision" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.2.9-b130926.1035 svn-revision#5f6196f2b90e9460065a4c2f4e30e065b245e51e. --><xs:schema xmlns:tns="http://api/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://api/">
+
+<xs:element name="autenticarse" type="tns:autenticarse"></xs:element>
+
+<xs:element name="autenticarseResponse" type="tns:autenticarseResponse"></xs:element>
+
+<xs:element name="evento" type="tns:evento"></xs:element>
+
+<xs:element name="usuario" type="tns:usuario"></xs:element>
+
+<xs:complexType name="autenticarse">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="autenticarseResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="usuario">
+<xs:sequence>
+<xs:element name="apellidos" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="contrasena" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="correo" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="eventoIdevento" type="tns:evento" minOccurs="0"></xs:element>
+<xs:element name="fechanacimiento" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="idusuario" type="xs:decimal" minOccurs="0"></xs:element>
+<xs:element name="nombres" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="tipo" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="evento">
+<xs:sequence>
+<xs:element name="fechafin" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="fechainicio" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="idevento" type="xs:decimal" minOccurs="0"></xs:element>
+<xs:element name="tema" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

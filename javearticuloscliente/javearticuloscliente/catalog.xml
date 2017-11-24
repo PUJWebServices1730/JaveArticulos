@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:9990/ws/javearticulos/auth?wsdl" uri="xml-resources/web-service-references/auth/wsdl/localhost_9990/ws/javearticulos/auth.wsdl"/>
+    <system systemId="http://localhost:9990/ws/javearticulos/auth?xsd=1" uri="xml-resources/web-service-references/auth/wsdl/localhost_9990/ws/javearticulos/auth.xsd_1.xsd"/>
+    <system systemId="http://localhost:9990/ws/javearticulos/usuario?wsdl" uri="xml-resources/web-service-references/usuario/wsdl/localhost_9990/ws/javearticulos/usuario.wsdl"/>
+    <system systemId="http://localhost:9990/ws/javearticulos/usuario?xsd=1" uri="xml-resources/web-service-references/usuario/wsdl/localhost_9990/ws/javearticulos/usuario.xsd_1.xsd"/>
+    <system systemId="http://localhost:9990/ws/javearticulos/submision?wsdl" uri="xml-resources/web-service-references/submision/wsdl/localhost_9990/ws/javearticulos/submision.wsdl"/>
+    <system systemId="http://localhost:9990/ws/javearticulos/submision?xsd=1" uri="xml-resources/web-service-references/submision/wsdl/localhost_9990/ws/javearticulos/submision.xsd_1.xsd"/>
+    <system systemId="http://localhost:8181/ws/javearticulos/auth?wsdl" uri="xml-resources/web-service-references/auth/wsdl/localhost_8181/ws/javearticulos/auth.wsdl"/>
+    <system systemId="http://localhost:8181/ws/javearticulos/auth?xsd=1" uri="xml-resources/web-service-references/auth/wsdl/localhost_8181/ws/javearticulos/auth.xsd_1.xsd"/>
+    <system systemId="http://localhost:8181/ws/javearticulos/usuario?wsdl" uri="xml-resources/web-service-references/usuario/wsdl/localhost_8181/ws/javearticulos/usuario.wsdl"/>
+    <system systemId="http://localhost:8181/ws/javearticulos/usuario?xsd=1" uri="xml-resources/web-service-references/usuario/wsdl/localhost_8181/ws/javearticulos/usuario.xsd_1.xsd"/>
+    <system systemId="http://localhost:8181/ws/javearticulos/submision?wsdl" uri="xml-resources/web-service-references/submision/wsdl/localhost_8181/ws/javearticulos/submision.wsdl"/>
+    <system systemId="http://localhost:8181/ws/javearticulos/submision?xsd=1" uri="xml-resources/web-service-references/submision/wsdl/localhost_8181/ws/javearticulos/submision.xsd_1.xsd"/>
+</catalog>

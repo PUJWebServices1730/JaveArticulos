@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+        *** GENERATED FROM jax-ws.xml - DO NOT EDIT !                             ***
+        *** TO MODIFY wsimport options USE Web Service node -> Edit WS Attributes ***
+        *** TO CHANGE TARGETS GENERATED TO jaxws-build.xml COPY THOSE             ***
+        *** TARGETS TO ../build.xml AND MODIFY THAT FILE INSTEAD                  ***
+
+        --><project xmlns:xalan="http://xml.apache.org/xslt" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
+    <!--
+                ===================
+                JAX-WS WSIMPORT SECTION
+                ===================
+            -->
+    <target name="wsimport-init" depends="init">
+        <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
+        <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+            <classpath path="${libs.jaxws21.classpath}"/>
+        </taskdef>
+    </target>
+    <target name="wsimport-client-auth" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/auth"/>
+        <property name="wsdl-auth" location="xml-resources/web-service-references/auth/wsdl/localhost_8181/ws/javearticulos/auth.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/auth" destdir="${build.generated.dir}/jax-wsCache/auth" wsdl="${wsdl-auth}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8181/ws/javearticulos/auth?wsdl" xnocompile="true" xendorsed="true" package="autenticacion">
+            <depends file="${wsdl-auth}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/auth"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/auth">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-auth" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/auth"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/autenticacion"/>
+    </target>
+    <target name="wsimport-client-usuario" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/usuario"/>
+        <property name="wsdl-usuario" location="xml-resources/web-service-references/usuario/wsdl/localhost_8181/ws/javearticulos/usuario.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/usuario" destdir="${build.generated.dir}/jax-wsCache/usuario" wsdl="${wsdl-usuario}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8181/ws/javearticulos/usuario?wsdl" xnocompile="true" xendorsed="true" package="usuario">
+            <depends file="${wsdl-usuario}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/usuario"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/usuario">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-usuario" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/usuario"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/usuario"/>
+    </target>
+    <target name="wsimport-client-submision" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/submision"/>
+        <property name="wsdl-submision" location="xml-resources/web-service-references/submision/wsdl/localhost_8181/ws/javearticulos/submision.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/submision" destdir="${build.generated.dir}/jax-wsCache/submision" wsdl="${wsdl-submision}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8181/ws/javearticulos/submision?wsdl" xnocompile="true" xendorsed="true" package="submision">
+            <depends file="${wsdl-submision}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/submision"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/submision">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-submision" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/submision"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/submision"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-auth, wsimport-client-usuario, wsimport-client-submision"/>
+</project>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:9990/ws/javearticulos/auth?wsdl" uri="wsdl/localhost_9990/ws/javearticulos/auth.wsdl"/>
+    <system systemId="http://localhost:9990/ws/javearticulos/auth?xsd=1" uri="wsdl/localhost_9990/ws/javearticulos/auth.xsd_1.xsd"/>
+    <system systemId="http://localhost:8181/ws/javearticulos/auth?wsdl" uri="wsdl/localhost_8181/ws/javearticulos/auth.wsdl"/>
+    <system systemId="http://localhost:8181/ws/javearticulos/auth?xsd=1" uri="wsdl/localhost_8181/ws/javearticulos/auth.xsd_1.xsd"/>
+    <system systemId="http://localhost:9990/ws/javearticulos/usuario?wsdl" uri="wsdl/localhost_9990/ws/javearticulos/usuario.wsdl"/>
+    <system systemId="http://localhost:9990/ws/javearticulos/usuario?xsd=1" uri="wsdl/localhost_9990/ws/javearticulos/usuario.xsd_1.xsd"/>
+    <system systemId="http://localhost:8181/ws/javearticulos/usuario?wsdl" uri="wsdl/localhost_8181/ws/javearticulos/usuario.wsdl"/>
+    <system systemId="http://localhost:8181/ws/javearticulos/usuario?xsd=1" uri="wsdl/localhost_8181/ws/javearticulos/usuario.xsd_1.xsd"/>
+    <system systemId="http://localhost:9990/ws/javearticulos/submision?wsdl" uri="wsdl/localhost_9990/ws/javearticulos/submision.wsdl"/>
+    <system systemId="http://localhost:9990/ws/javearticulos/submision?xsd=1" uri="wsdl/localhost_9990/ws/javearticulos/submision.xsd_1.xsd"/>
+    <system systemId="http://localhost:8181/ws/javearticulos/submision?wsdl" uri="wsdl/localhost_8181/ws/javearticulos/submision.wsdl"/>
+    <system systemId="http://localhost:8181/ws/javearticulos/submision?xsd=1" uri="wsdl/localhost_8181/ws/javearticulos/submision.xsd_1.xsd"/>
+</catalog>
